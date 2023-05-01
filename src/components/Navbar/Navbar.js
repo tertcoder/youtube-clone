@@ -120,9 +120,7 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <Sidebar
-        className={`top-${sideBartop} h-[100vh - ${sideBartop.toString()}px]`}
-      />
+      <Sidebar className={`top-${sideBartop}`} />
     </React.Fragment>
   );
 };

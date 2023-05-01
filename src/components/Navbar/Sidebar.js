@@ -54,7 +54,7 @@ const Sidebar = (props) => {
   return (
     <React.Fragment>
       <div
-        className={`overflow-y-scroll w-60  fixed bg-white left-0 ${props.className}`}
+        className={`whole overflow-y-scroll costumized-scrollbar w-60 max-h-[92%] fixed bg-white left-0 ${props.className}`}
       >
         <div>
           <div className="p-3 pb-0">
