@@ -62,7 +62,7 @@ const NavBar = () => {
             <div className="flex justify-between overflow-hidden border border-gray-300 rounded-full w-[36rem] mr-4">
               <div
                 className={`relative flex w-full overflow-hidden rounded-l-full ${
-                  !Active ? "" : "border border-blue-200"
+                  !Active ? "" : "border border-blue-400"
                 }`}
               >
                 <img
@@ -110,7 +110,7 @@ const NavBar = () => {
             </button>
             <button className="relative p-3 bg-transparent rounded-full hover:bg-black/5">
               <img src={bellIcon} alt="bellIcon" className="w-6" />
-              <span className="absolute px-1 text-xs text-white bg-red-600 rounded-full top-1">
+              <span className="absolute px-1 text-xs text-white bg-red-600 rounded-full top-2">
                 9+
               </span>
             </button>
