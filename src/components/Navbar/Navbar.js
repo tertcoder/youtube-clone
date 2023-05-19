@@ -46,7 +46,7 @@ const NavBar = () => {
   }, []);
   return (
     <React.Fragment>
-      <div className="w-ful bg-white sticky top-0 left-0" ref={navCssProps}>
+      <div className="sticky top-0 left-0 bg-white w-ful" ref={navCssProps}>
         <div className="flex items-center justify-between px-4 py-2">
           {/* Logo */}
           <div className="flex items-center gap-4">
