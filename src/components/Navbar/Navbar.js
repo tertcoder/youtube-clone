@@ -8,6 +8,7 @@ import addVideoIcon from "../../assets/add-video.svg";
 import bellIcon from "../../assets/bell.svg";
 import closeIcon from "../../assets/close.svg";
 import Sidebar from "./Sidebar";
+import FilterBar from "../filterBar/FilterBar";
 
 const NavBar = () => {
   const [Active, setActive] = useReducer((current_active) => {
@@ -46,7 +47,7 @@ const NavBar = () => {
   }, []);
   return (
     <React.Fragment>
-      <div className="sticky top-0 left-0 bg-white w-ful" ref={navCssProps}>
+      <div className="sticky top-0 left-0 w-full bg-white" ref={navCssProps}>
         <div className="flex items-center justify-between px-4 py-2">
           {/* Logo */}
           <div className="flex items-center gap-4">
@@ -110,7 +111,7 @@ const NavBar = () => {
             </button>
             <button className="relative p-3 bg-transparent rounded-full hover:bg-black/5">
               <img src={bellIcon} alt="bellIcon" className="w-6" />
-              <span className="absolute px-1 text-xs text-white bg-red-600 rounded-full top-2">
+              <span className="absolute px-1 text-xs text-white bg-[#e02117] rounded-full top-2">
                 9+
               </span>
             </button>
@@ -120,7 +121,12 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <Sidebar className={`top-${sideBartop}`} />
+      <div className="flex items-center">
+        <div className="w-96">
+          <Sidebar className={`top-${sideBartop}`} />
+        </div>
+        <FilterBar />
+      </div>
     </React.Fragment>
   );
 };

@@ -7,6 +7,10 @@
     @apply flex items-center gap-6 p-2 px-4 rounded-lg cursor-pointer list-none hover:bg-gray-100;
   }
 
+  .divide-space {
+    @apply border-b border-gray-200;
+  }
+
   .costumized-scrollbar::-webkit-scrollbar {
     @apply w-2 invisible;
   }

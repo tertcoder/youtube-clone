@@ -22,6 +22,14 @@ import Sports from "../../assets/sports.svg";
 import Learning from "../../assets/learning.svg";
 import Fashion from "../../assets/fashion.svg";
 
+import Studio from "../../assets/youtubestudio.svg";
+import Kids from "../../assets/youtubekids.svg";
+
+import Settings from "../../assets/settings.svg";
+import Report from "../../assets/report-flag.svg";
+import Help from "../../assets/help.svg";
+import Feedback from "../../assets/feedback.svg";
+
 const Sidebar = (props) => {
   const Channels = [
     { cnName: "Clever Programmer", cnProfile: `${profile1}` },
@@ -39,6 +47,17 @@ const Sidebar = (props) => {
     { Tname: "Learning", Ticon: `${Learning}` },
     { Tname: "Fashion & Beauty", Ticon: `${Fashion}` },
   ];
+  const youOption = [
+    { Yname: "YouTube Studio", Yicon: `${Studio}` },
+    { Yname: "YouTube Kids", Yicon: `${Kids}` },
+  ];
+
+  const options = [
+    { Oname: "Settings", Oicon: `${Settings}` },
+    { Oname: "Report history", Oicon: `${Report}` },
+    { Oname: "Help", Oicon: `${Help}` },
+    { Oname: "Send feedback", Oicon: `${Feedback}` },
+  ];
 
   const [moreTabs, setMoreTabs] = useReducer((current_preview) => {
     if (current_preview === false) {
@@ -54,11 +73,11 @@ const Sidebar = (props) => {
   return (
     <React.Fragment>
       <div
-        className={`whole overflow-y-scroll costumized-scrollbar w-60 max-h-[92%] fixed bg-white left-0 ${props.className}`}
+        className={`whole overflow-y-scroll costumized-scrollbar w-60 fixed h-[91%]  bg-white left-0 ${props.className}`}
       >
         <div>
           <div className="p-3 pb-0">
-            <ul className="border-b pb-3 border-gray-200">
+            <ul className="pb-3 border-b border-gray-200">
               <li className="sideLinks">
                 <img src={homeIcon} alt="Home" className="w-5" />
                 <span>Home</span>
@@ -77,7 +96,7 @@ const Sidebar = (props) => {
               </li>
             </ul>
           </div>
-          <div className="border-b border-gray-200">
+          <div className="divide-space">
             <ul className="p-3">
               <li className="sideLinks">
                 <img src={libraryIcon} alt="Library" className="w-6" />
@@ -111,7 +130,7 @@ const Sidebar = (props) => {
                 <img
                   src={likedVideoIcon}
                   alt="Liked Video "
-                  className="w-6  opacity-70"
+                  className="w-6 opacity-70"
                 />
                 <span className="-ml-1">Liked videos</span>
               </li>
@@ -122,7 +141,7 @@ const Sidebar = (props) => {
                     <img
                       src={playlistIcon}
                       alt="Playlist 1"
-                      className="w-6  opacity-70"
+                      className="w-6 opacity-70"
                     />
                     <span className="-ml-1">Playlist 1</span>
                   </li>
@@ -130,7 +149,7 @@ const Sidebar = (props) => {
                     <img
                       src={playlistIcon}
                       alt="Playlist 2"
-                      className="w-6  opacity-70"
+                      className="w-6 opacity-70"
                     />
                     <span className="-ml-1">Playlist 2</span>
                   </li>
@@ -153,8 +172,8 @@ const Sidebar = (props) => {
               </li>
             </ul>
           </div>
-          <div className="border-b border-gray-200">
-            <span className=" block text-md font-regular pt-3 pl-7">
+          <div className="divide-space">
+            <span className="block pt-3 text-md font-regular pl-7">
               Subscriptions
             </span>
             <ul className="p-3">
@@ -174,8 +193,8 @@ const Sidebar = (props) => {
               ))}
             </ul>
           </div>
-          <div className="border-b border-gray-200">
-            <span className=" block text-md font-regular pt-3 pl-7">
+          <div className="divide-space">
+            <span className="block pt-3 text-md font-regular pl-7">
               Explore
             </span>
             <ul className="p-3">
@@ -187,9 +206,83 @@ const Sidebar = (props) => {
               ))}
             </ul>
           </div>
-          <div></div>
-          <div></div>
-          <div></div>
+
+          <div className="divide-space">
+            <span className="block pt-3 text-md font-regular pl-7">
+              More from YouTube
+            </span>
+            <ul className="p-3">
+              {youOption.map((you) => (
+                <li className="sideLinks">
+                  <img src={you.Yicon} alt={youOption.Yname} className="w-6" />
+                  <span>{you.Yname}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="divide-space">
+            {/* <span className="block pt-3 text-md font-regular pl-7">
+              More from YouTube
+            </span> */}
+            <ul className="p-3">
+              {options.map((o) => (
+                <li className="sideLinks">
+                  <img src={o.Oicon} alt={options.Oname} className="w-6" />
+                  <span>{o.Oname}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="pt-3 pl-7 font-semibold opacity-[0.65] text-sm space-y-4">
+            <div>
+              <div>
+                <a href="go">About</a>
+                <a href="go" className="ml-2">
+                  Press
+                </a>
+                <a href="go" className="ml-2">
+                  Copyright
+                </a>
+              </div>
+              <div>
+                <a href="go">Contact us</a>
+                <a href="go" className="ml-2">
+                  Creators
+                </a>
+              </div>
+              <div>
+                <a href="go">Advertise</a>
+                <a href="go" className="ml-2">
+                  Developers
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <a href="go">Terms</a>
+                <a href="go" className="ml-2">
+                  Privacy
+                </a>
+              </div>
+              <div>
+                <a href="go">Policy & Safety</a>
+              </div>
+              <div>
+                <a href="go">How YouTube works</a>
+              </div>
+              <div>
+                <a href="go">Test new features</a>
+              </div>
+            </div>
+
+            <div className="">
+              <span className="text-base font-normal opacity-20">
+                &copy; {new Date().getFullYear()} Google LLC
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </React.Fragment>
