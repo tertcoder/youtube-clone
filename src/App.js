@@ -7,7 +7,7 @@ function App() {
   return (
     <React.Fragment>
       <NavBar />
-      <FilterBar />
+      {/* <FilterBar /> */}
     </React.Fragment>
   );
 }

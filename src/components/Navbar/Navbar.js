@@ -9,9 +9,11 @@ import bellIcon from "../../assets/bell.svg";
 import closeIcon from "../../assets/close.svg";
 import Sidebar from "./Sidebar";
 import FilterBar from "../filterBar/FilterBar";
+import ShortSidebar from "./mobile/ShortSidebar";
+import { isVisible } from "@testing-library/user-event/dist/utils";
 
 const NavBar = () => {
-  const [Active, setActive] = useReducer((current_active) => {
+  const [Active, setActive] = useReducer(current_active => {
     if (current_active === false) {
       return true;
     } else {
@@ -27,7 +29,16 @@ const NavBar = () => {
   const inputSearch = useRef(null);
   const [closeVisible, setCloseVisible] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const cleanHandler = (e) => {
+  const [wsidebar, setWsidebar] = useReducer(Mainpreview => {
+    if (Mainpreview == "mainSideBar") {
+      Mainpreview = "closed";
+      return "hidden";
+    } else {
+      Mainpreview = "mainSideBar";
+      return "block";
+    }
+  }, "mainSideBar");
+  const cleanHandler = e => {
     setCloseVisible(true);
     setSearchValue(e.target.value);
   };
@@ -45,13 +56,20 @@ const NavBar = () => {
     setSideBartop(getProps.height);
     console.log(sideBartop);
   }, []);
+  const toggleSideBar = () => {
+    setWsidebar();
+    console.log(wsidebar);
+  };
   return (
     <React.Fragment>
       <div className="sticky top-0 left-0 w-full bg-white" ref={navCssProps}>
         <div className="flex items-center justify-between px-4 py-2">
           {/* Logo */}
           <div className="flex items-center gap-4">
-            <button className="p-2 bg-transparent rounded-full outline-none hover:bg-black/5 focus:bg-black/5">
+            <button
+              onClick={toggleSideBar}
+              className="p-2 bg-transparent rounded-full outline-none hover:bg-black/5 focus:bg-black/5"
+            >
               <img src={menuIcon} alt="menuIcon" className="w-7" />
             </button>
             <div>
@@ -121,9 +139,10 @@ const NavBar = () => {
           </div>
         </div>
       </div>
-      <div className="flex items-center">
-        <div className="w-96">
-          <Sidebar className={`top-${sideBartop}`} />
+      <div className="flex items-start">
+        <div className={`top-[${sideBartop}px] ${wsidebar} duration-300`}>
+          <Sidebar className={`${wsidebar}`} />
+          <ShortSidebar className="w20 hidden" />
         </div>
         <FilterBar />
       </div>

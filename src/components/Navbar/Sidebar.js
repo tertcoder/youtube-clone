@@ -30,7 +30,9 @@ import Report from "../../assets/report-flag.svg";
 import Help from "../../assets/help.svg";
 import Feedback from "../../assets/feedback.svg";
 
-const Sidebar = (props) => {
+import ShortSidebar from "./mobile/ShortSidebar";
+
+const Sidebar = props => {
   const Channels = [
     { cnName: "Clever Programmer", cnProfile: `${profile1}` },
     { cnName: "Fireship", cnProfile: `${profile2}` },
@@ -59,7 +61,7 @@ const Sidebar = (props) => {
     { Oname: "Send feedback", Oicon: `${Feedback}` },
   ];
 
-  const [moreTabs, setMoreTabs] = useReducer((current_preview) => {
+  const [moreTabs, setMoreTabs] = useReducer(current_preview => {
     if (current_preview === false) {
       return true;
     } else {
@@ -73,7 +75,7 @@ const Sidebar = (props) => {
   return (
     <React.Fragment>
       <div
-        className={`whole overflow-y-scroll costumized-scrollbar w-60 fixed h-[91%]  bg-white left-0 ${props.className}`}
+        className={`whole overflow-y-scroll costumized-scrollbar fixed h-[91%] overflow-x-hidden bg-white left-0 ${props.className}`}
       >
         <div>
           <div className="p-3 pb-0">
@@ -177,7 +179,7 @@ const Sidebar = (props) => {
               Subscriptions
             </span>
             <ul className="p-3">
-              {Channels.map((list) => (
+              {Channels.map(list => (
                 <li className="sideLinks">
                   <img
                     src={list.cnProfile}
@@ -198,7 +200,7 @@ const Sidebar = (props) => {
               Explore
             </span>
             <ul className="p-3">
-              {types.map((type) => (
+              {types.map(type => (
                 <li className="sideLinks">
                   <img src={type.Ticon} alt={type.Tname} className="w-6" />
                   <span>{type.Tname}</span>
@@ -212,7 +214,7 @@ const Sidebar = (props) => {
               More from YouTube
             </span>
             <ul className="p-3">
-              {youOption.map((you) => (
+              {youOption.map(you => (
                 <li className="sideLinks">
                   <img src={you.Yicon} alt={youOption.Yname} className="w-6" />
                   <span>{you.Yname}</span>
@@ -226,7 +228,7 @@ const Sidebar = (props) => {
               More from YouTube
             </span> */}
             <ul className="p-3">
-              {options.map((o) => (
+              {options.map(o => (
                 <li className="sideLinks">
                   <img src={o.Oicon} alt={options.Oname} className="w-6" />
                   <span>{o.Oname}</span>
@@ -284,6 +286,7 @@ const Sidebar = (props) => {
             </div>
           </div>
         </div>
+        {props.children}
       </div>
     </React.Fragment>
   );

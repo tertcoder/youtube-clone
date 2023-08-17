@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer utilities {
+  .w60 {
+    @apply w-60;
+  }
+  .w20 {
+    @apply w-24;
+  }
   .sideLinks {
     @apply flex items-center gap-6 p-2 px-4 rounded-lg cursor-pointer list-none hover:bg-gray-100;
   }
