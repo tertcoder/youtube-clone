@@ -4,17 +4,41 @@
 
 @layer utilities {
   .w60 {
-    @apply w-60;
+    @apply basis-60;
   }
   .w20 {
-    @apply w-24;
+    @apply basis-24;
   }
   .sideLinks {
-    @apply flex items-center gap-6 p-2 px-4 rounded-lg cursor-pointer list-none hover:bg-gray-100;
+    @apply flex items-center gap-6 p-2 px-4 rounded-lg cursor-pointer list-none hover:bg-gray-100 duration-150;
   }
 
   .divide-space {
     @apply border-b border-gray-200;
+  }
+
+  .filterEl {
+    @apply bg-gray-100/80 hover:bg-gray-200 duration-150 rounded-full cursor-pointer inline-block;
+  }
+  .border-color {
+    /* background: linear-gradient(
+      -45deg,
+      #8d8dff,
+      #7c7cfc,
+      #ff6dff,
+      #fc5dfc,
+      #d773ff,
+      #d773fc
+    ); */
+    background: linear-gradient(
+      -45deg,
+      #3d3df2,
+      #f34646,
+      #fd47fd,
+      #b6ff49,
+      #f7ac3c
+    );
+    background-clip: border-box;
   }
 
   .costumized-scrollbar::-webkit-scrollbar {

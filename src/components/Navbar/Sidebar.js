@@ -30,8 +30,6 @@ import Report from "../../assets/report-flag.svg";
 import Help from "../../assets/help.svg";
 import Feedback from "../../assets/feedback.svg";
 
-import ShortSidebar from "./mobile/ShortSidebar";
-
 const Sidebar = props => {
   const Channels = [
     { cnName: "Clever Programmer", cnProfile: `${profile1}` },
@@ -75,7 +73,7 @@ const Sidebar = props => {
   return (
     <React.Fragment>
       <div
-        className={`whole overflow-y-scroll costumized-scrollbar fixed h-[91%] overflow-x-hidden bg-white left-0 ${props.className}`}
+        className={`whole overflow-y-scroll costumized-scrollbar  max-h-[90vh] overflow-x-hidden bg-white   ${props.className}`}
       >
         <div>
           <div className="p-3 pb-0">

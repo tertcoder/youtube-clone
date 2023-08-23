@@ -8,7 +8,7 @@ import addVideoIcon from "../../assets/add-video.svg";
 import bellIcon from "../../assets/bell.svg";
 import closeIcon from "../../assets/close.svg";
 import Sidebar from "./Sidebar";
-import FilterBar from "../filterBar/FilterBar";
+import Feeds from "../Container/Feeds";
 import ShortSidebar from "./mobile/ShortSidebar";
 import { isVisible } from "@testing-library/user-event/dist/utils";
 
@@ -29,15 +29,7 @@ const NavBar = () => {
   const inputSearch = useRef(null);
   const [closeVisible, setCloseVisible] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const [wsidebar, setWsidebar] = useReducer(Mainpreview => {
-    if (Mainpreview == "mainSideBar") {
-      Mainpreview = "closed";
-      return "hidden";
-    } else {
-      Mainpreview = "mainSideBar";
-      return "block";
-    }
-  }, "mainSideBar");
+
   const cleanHandler = e => {
     setCloseVisible(true);
     setSearchValue(e.target.value);
@@ -47,7 +39,7 @@ const NavBar = () => {
     setCloseVisible(false);
     inputSearch.current.focus();
   };
-
+  const [isMain, setIsmain] = useState(true);
   const [sideBartop, setSideBartop] = useState("");
   const navCssProps = useRef(null);
 
@@ -57,8 +49,11 @@ const NavBar = () => {
     console.log(sideBartop);
   }, []);
   const toggleSideBar = () => {
-    setWsidebar();
-    console.log(wsidebar);
+    if (isMain) {
+      setIsmain(false);
+    } else {
+      setIsmain(true);
+    }
   };
   return (
     <React.Fragment>
@@ -140,11 +135,11 @@ const NavBar = () => {
         </div>
       </div>
       <div className="flex items-start">
-        <div className={`top-[${sideBartop}px] ${wsidebar} duration-300`}>
-          <Sidebar className={`${wsidebar}`} />
-          <ShortSidebar className="w20 hidden" />
+        <div className={`top-[${sideBartop}px]  flex w-full`}>
+          <Sidebar className={`${!isMain ? "hidden" : ""} `} />
+          <ShortSidebar className={`${isMain ? "hidden" : ""}`} />
+          <Feeds />
         </div>
-        <FilterBar />
       </div>
     </React.Fragment>
   );
