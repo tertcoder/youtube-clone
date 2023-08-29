@@ -2,7 +2,7 @@ import React from "react";
 import FilterBar from "../filterBar/FilterBar";
 //Tk5SFEVFVK2262H1dsnujHZFDxqFfWJoK9BY569FaEzqhmxU1Tv3ECBN
 const API_KEY = "Tk5SFEVFVK2262H1dsnujHZFDxqFfWJoK9BY569FaEzqhmxU1Tv3ECB";
-const API_URL = "https://api.pexels.com/videos/popular?per_page=1";
+const API_URL = "https://api.pexels.com/v1/curated?page=3&per_page=40";
 
 fetch(API_URL, {
   headers: {
